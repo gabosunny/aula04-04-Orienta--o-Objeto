@@ -1,0 +1,170 @@
+package aluno;
+
+public class Aluno {
+
+    //Atributos
+    private String nome;
+    private char sexo;
+    private float altura, peso;
+    private int anoNascimento;
+    //metode de acesso
+    /**
+     * atribui o parametro ao atributo nome
+     * @param valorNome 
+     */
+        public void setNome(String valorNome){
+        
+        nome = valorNome; // <atributo> = <parametro>
+        
+    }
+        /**
+         * atribui o parametro ao atributo sexo
+         * @param valorSexo 
+         */
+    public void setSexo(char valorSexo){
+        
+        sexo = valorSexo; // <atributo> = <parametro>
+        
+    }
+    /**
+     * atribui o parametro ao atributo altura
+     * @param valorAltura 
+     */
+    public void setAltura(float valorAltura){
+        
+        altura = valorAltura; // <atributo> = <parametro>
+        
+    }
+    /**
+     * atribui o parametro ao atributo peso
+     * @param valorAtura 
+     */
+    public void setPeso (float valorPeso){
+        
+        peso = valorPeso; // <atributo> = <parametro>
+        
+    }
+    public void setAnoNascimento(int valorAnoNascimento){
+        
+        anoNascimento = valorAnoNascimento; // <atributo> = <parametro>
+        
+    }
+    /**
+     * obtem o valor do atributo nome
+     * @return String
+     */
+    public String getNome(){
+        
+        return nome;        
+    }
+    /**
+     * obtem o valor do atributo sexo
+     * @return 
+     */
+    public char getSexo(){
+        
+        return sexo;        
+    }
+    /**
+     * obtem o valor do atributo peso
+     * @return 
+     */
+    public float getPeso(){
+        
+        return peso;
+    }
+    /**
+     * obtem o valor do atributo altura
+     * @return 
+     */
+        public float getAltura(){
+        
+        return altura;
+    }
+        /**
+         * obtem o valor do atriburo anoNascimento
+         * @return 
+         */
+    public float getAnoNascimento(){
+        
+        return anoNascimento;
+    }
+    
+    //metodos
+    /**
+     * exibe os dados do aluno em um comando de impressão sem retorno e sem
+     * parametro
+     */
+    public void imprimir() {
+        System.out.println("Nome " + nome
+                + "\nSexo " + sexo
+                + "\nAltura " + altura
+                + "\npeso " + peso
+                + "\nanoNascimento " + anoNascimento);
+
+    }
+
+    /**
+     * calcula a idade do aluno com base no anoNascimento e no ano Atual
+     *
+     * @param anoAtual
+     * @return
+     */
+    public int calcularIdade(int anoAtual) {
+
+        int idade;
+
+        idade = anoAtual - anoNascimento;
+
+        return idade;
+    }
+
+    /**
+     * calcua o peso ideal do aluno com base no sexo e altura
+     *
+     * @return float
+     */
+    public float calcularPesoIdeal() {
+        float pesoIdeal = 0;
+        if (sexo == 'F' || sexo == 'f') {
+            pesoIdeal = (62.1f * altura) - 44.7f;
+        }
+        if (sexo == 'm' || sexo == 'M') {
+            pesoIdeal = (72.7f * altura) - 58f;
+        }
+        return pesoIdeal;
+    }
+    /**
+     * calcula o IMC do aluno com base no peso e altura
+     * @return float IMC
+     */
+    public float calcularIMC() {
+        float IMC ;
+        IMC = peso/(altura*altura);
+        return IMC;
+            
+    }
+    
+    public void mostrarSituacao (){
+        float IMC = calcularIMC();
+        
+        if (IMC < 18.5){
+            System.out.println(IMC+"\nAbaixo do peso ideal");
+        }
+        else if (18.5 < 24.9){
+                System.out.println(IMC+"\nPeso normal");
+            }
+        else if (25.0 < 29.9){
+            System.out.println(IMC+"\nAcima do peso (SOBRE PESO)");
+        }
+        else if (30.0<34.9){
+            System.out.println(IMC+"\nObesidade grau I");
+        }      
+        else if (35.0<39.9){
+            System.out.println(IMC+"\nObesidade grau II");
+        }
+        else {
+            System.out.println(IMC+"\nObesidade grau III");
+        }
+    } 
+}
