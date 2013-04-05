@@ -1,0 +1,52 @@
+package aluno;
+
+
+import aluno.Aluno;
+import java.util.Scanner;
+
+public class Appaluno {
+    
+    public static void main (String args []){
+        
+        Scanner entrada = new Scanner(System.in);
+        int anoAtual, idade;
+        float pesoIdeal, IMC;
+        //Criando um objeto aluno
+        Aluno aluno = new Aluno();
+        System.out.println("Nome");
+        aluno.setNome(entrada.next());
+        System.out.println("Sexo (F/M):");
+        aluno.setSexo(entrada.next().charAt(0));
+        System.out.println("Altura: ");
+        aluno.setAltura(entrada.nextFloat());
+        System.out.println("Peso: ");
+        aluno.setPeso(entrada.nextFloat());
+        System.out.println("Ano de Nascimento: ");
+        aluno.setAnoNascimento(entrada.nextInt());
+        
+        //imprimirm os dados do aluno
+        
+        aluno.imprimir();
+        
+        //calcular a idade do aluno
+        
+        System.out.println("Ano atual: ");
+        anoAtual = entrada.nextInt();
+        idade = aluno.calcularIdade(anoAtual);
+        
+        //calcular o peso ideal
+        
+        pesoIdeal = aluno.calcularPesoIdeal();
+        
+        System.out.println(aluno.getNome()+" tem " + idade+" idade "+ "anos.\nSeu peso ideal e "+
+                pesoIdeal);
+        //calculo do IMC e exibe
+        IMC = aluno.calcularIMC();
+        
+        System.out.println("IMC " + IMC);
+        
+        // mostrar a situação
+        aluno.mostrarSituacao();
+    }
+    
+}
